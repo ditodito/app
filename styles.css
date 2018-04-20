@@ -1,0 +1,276 @@
+html, body {
+    height: 100%;
+    background-color: #d2ddeb;
+    padding: 0;
+    margin: 0;
+}
+
+div.wrapper {
+    min-height: 100%;
+    height: auto;
+    margin-bottom: -80px;
+    padding-bottom: 130px;
+}
+
+header {
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+
+header > div {
+    height: 33px;
+}
+
+header > div > span {
+    color: #9ba5b2;
+    line-height: 33px;
+    margin-right: 15px;
+    float: right;
+}
+
+footer {
+    height: 80px;
+    color: #9ba5b2;
+    text-align: center;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+
+
+/* top section */
+#topBlock {
+    background: #f9fafb;
+    margin-bottom: 15px;
+}
+
+#filterTitle {
+    text-indent: 40px;
+    outline: none;
+    border: none;
+    padding: 10px 0;
+    background: transparent url('img/search1.png') no-repeat center left 5px;
+}
+
+#addRecordBtn, #showFilterBtn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+
+#addRecordBtn {
+    color: #a1c4ff;
+    text-indent: 40px;
+    background: transparent url('img/plus.png') no-repeat;
+    padding-right: 15px;
+}
+
+#showFilterBtn {
+    color: #fff;
+    border-radius: 15px;
+    background-color: #a7bedb;
+    margin-left: 0;
+}
+
+
+
+/* filter block */
+#filterBlock {
+    background-color: #f9fafb;
+    padding: 15px 0;
+}
+
+#filterBlock > div {
+    padding: 0 15px;
+}
+
+#filterBlock > div > p.title {
+    color: #9ba5b2;
+}
+
+span.category-filter, span.category {
+    color: #a1c4ff;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 15px;
+    border: 1px solid #a1c4ff;
+    padding: 8px 15px;
+    margin: 0 10px 15px 0;
+}
+
+span.category-filter-active {
+    color: #fff;
+    background-color: #a1c4ff;
+}
+
+
+
+/* record block */
+#recordBlock > h4 {
+    text-indent: 15px;
+    margin-bottom: 0;
+}
+
+#recordBlock > div {
+    padding: 15px 0;
+}
+
+#records {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+div.record {
+    background-color: #f9fafb;
+    border-bottom: 1px solid #d2ddeb;
+}
+
+div.record > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.record > div {
+    padding: 15px;
+}
+
+div.comment > div {
+    color: #b8b8b8;
+}
+
+div.record a {
+    text-decoration: none;
+}
+
+div.record a, div.comment > div > div {
+    color: #45617e;
+}
+
+#recordFooter {
+    color: #fff;
+    font-size: 12px;
+    text-align: right;
+    background-color: #a1c4ff;
+    padding: 15px;
+}
+
+#totalAmount {
+    font-size: 16px;
+}
+
+
+/* record block */
+.modal__title {
+    font-size: 16px;
+    text-align: left !important;
+    padding: 10px;
+    margin: 0;
+}
+
+form label {
+    color: #a1c4ff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type='submit'] {
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #a2c5ff;
+    padding: 15px;
+    float: right;
+}
+
+.control {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #bec2da;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+    header {
+        margin-bottom: 30px;
+    }
+
+    #topBlock > div:last-child > div {
+        float: right;
+    }
+
+    #addRecordBtn, #filterTitle {
+        border-right: 1px solid #e9eaed;
+    }
+
+    #filterTitle {
+        border-left: 1px solid #e9eaed;
+        padding: 10px 15px;
+        background-position: center left 15px;
+    }
+
+    #showFilterBtn {
+        margin-left: 15px;
+    }
+
+    #filterBlock > div {
+        border-right: 1px solid #d2ddeb;
+    }
+
+    #recordBlock > h4 {
+        text-indent: 0;
+    }
+
+    #recordBlock > div:last-child {
+        padding-left: 30px !important;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    header > div, div.container {
+        width: 1170px;
+        margin: auto;
+    }
+}
+
+google-chart {
+    height: 300px;
+    width: 100%;
+}

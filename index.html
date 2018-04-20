@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ka">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web app</title>
+        <link href="styles.css" rel="stylesheet" />
+
+        <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="bower_components/simple-modal/simple-modal.html" />
+        <link rel="import" href="bower_components/iron-form/iron-form.html" />
+        <link rel="import" href="bower_components/google-chart/google-chart.html" />
+        <!--<link rel="import" href="bower_components/vaadin-date-picker/vaadin-date-picker.html" />-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div>
+                    <img src="img/logo.jpg" height="33">
+                    <span>hello user</span>
+                </div>
+            </header>
+
+            <div class="container">
+                <div class="row" id="topBlock">
+                    <div class="col-6">
+                        <button id="addRecordBtn" onclick="showForm()">Add Payment</button>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <input type="text" id="filterTitle" placeholder="filter by title" />
+                            <button id="showFilterBtn" onclick="showFilters()">extended filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="filterBlock" style="display: none;">
+                    <div class="col-4">
+                        <p class="title">filter by category</p>
+                        <div id="categoryFilter"></div>
+                    </div>
+                    <div class="col-4">
+                        <p class="title">filter by date</p>
+                        <p><input type="date" class="control filter" id="dateFrom" placeholder="from" style="padding: 7px 10px;" /></p>
+                        <p><input type="date" class="control filter" id="dateTo" placeholder="to" style="padding: 8px 10px;" /></p>
+                    </div>
+                    <div class="col-4">
+                        <p class="title">filter by amount</p>
+                        <p><input type="number" class="control filter" id="amountFrom" placeholder="from" step="0.01" /></p>
+                        <p><input type="number" class="control filter" id="amountTo" placeholder="to" step="0.01" /></p>
+                    </div>
+                </div>
+
+                <div class="row" id="recordBlock">
+                    <h4><span id="recordCount">0</span> record found</h4>
+                    <div class="col-7" style="padding-left: 0;">
+                        <div id="records"></div>
+                        <div id="recordFooter">
+                            Total:<br />
+                            <span id="totalAmount">0</span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <google-chart id="chartMonth"
+                                      type='column'
+                                      options='{"title": "Payments per month"}'
+                                      data='http://localhost:4444/get_chart_data'>
+                        </google-chart>
+                        <google-chart id="chartMonthCategory"
+                                      type='column'
+                                      options='{"title": "Payments per category"}'
+                                      data='http://localhost:4444/get_chart_data_category'>
+                        </google-chart>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            2017<br />
+            payment management
+        </footer>
+
+        <simple-modal id="modal" title="ADD NEW PAYMENT">
+            <iron-form id="form">
+                <form action="http://localhost:4444/add_record" method="post">
+                    <div class="row">
+                        <div class="col-8">
+                            <label for="title">Title:</label>
+                            <input type="text" class="control" name="title" id="title" value="" />
+                        </div>
+                        <div class="col-4">
+                            <label for="amount">Amount:</label>
+                            <input type="number" class="control" name="amount" id="amount" step="0.01" value="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="category">Category:</label>
+                            <select class="control" name="category" id="category"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="date">Date:</label>
+                            <input type="date" class="control" name="date" id="date" value="" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="comment">Comment:</label>
+                            <textarea class="control" name="comment" id="comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="submit" name="submit" value="CREATE" />
+                        </div>
+                    </div>
+                </form>
+            </iron-form>
+        </simple-modal>
+
+        <script src="script.js"></script>
+    </body>
+</html>
