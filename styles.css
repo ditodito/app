@@ -117,7 +117,7 @@ span.category-filter-active {
 }
 
 #records {
-    max-height: 400px;
+    max-height: 488px;
     overflow-y: auto;
 }
 
@@ -259,7 +259,7 @@ form input[type='submit'] {
     }
 
     #recordBlock > div:last-child {
-        padding-left: 30px !important;
+        padding-left: 15px !important;
     }
 }
 
@@ -271,6 +271,6 @@ form input[type='submit'] {
 }
 
 google-chart {
-    height: 300px;
     width: 100%;
+    height: 275px;
 }
